@@ -102,165 +102,165 @@ CREATE TABLE comp_cast_type2 AS
 conn.execute('''
 CREATE INDEX IF NOT EXISTS name_idx_name ON name2 (name);''')
 conn.execute('''
-CREATE INDEX name_idx_imdb_id ON name2 (imdb_id);''')
+CREATE INDEX IF NOT EXISTS name_idx_imdb_id ON name2 (imdb_id);''')
 conn.execute('''
-CREATE INDEX name_idx_pcodecf ON name2 (name_pcode_cf);''')
+CREATE INDEX IF NOT EXISTS name_idx_pcodecf ON name2 (name_pcode_cf);''')
 conn.execute('''
-CREATE INDEX name_idx_pcodenf ON name2 (name_pcode_nf);''')
+CREATE INDEX IF NOT EXISTS name_idx_pcodenf ON name2 (name_pcode_nf);''')
 conn.execute('''
-CREATE INDEX name_idx_pcode ON name2 (surname_pcode);''')
+CREATE INDEX IF NOT EXISTS name_idx_pcode ON name2 (surname_pcode);''')
 conn.execute('''
-CREATE INDEX name_idx_md5 ON name2 (md5sum);''')
+CREATE INDEX IF NOT EXISTS name_idx_md5 ON name2 (md5sum);''')
 conn.execute('''
-CREATE INDEX char_name_idx_name ON char_name2 (name);''')
+CREATE INDEX IF NOT EXISTS char_name_idx_name ON char_name2 (name);''')
 conn.execute('''
-CREATE INDEX char_name_idx_pcodenf ON char_name2 (name_pcode_nf);''')
+CREATE INDEX IF NOT EXISTS char_name_idx_pcodenf ON char_name2 (name_pcode_nf);''')
 conn.execute('''
-CREATE INDEX char_name_idx_pcode ON char_name2 (surname_pcode);''')
+CREATE INDEX IF NOT EXISTS char_name_idx_pcode ON char_name2 (surname_pcode);''')
 conn.execute('''
-CREATE INDEX char_name_idx_md5 ON char_name2 (md5sum);''')
+CREATE INDEX IF NOT EXISTS char_name_idx_md5 ON char_name2 (md5sum);''')
 conn.execute('''
-CREATE INDEX company_name_idx_name ON company_name2 (name);''')
+CREATE INDEX IF NOT EXISTS company_name_idx_name ON company_name2 (name);''')
 conn.execute('''
-CREATE INDEX company_name_idx_pcodenf ON company_name2 (name_pcode_nf);''')
+CREATE INDEX IF NOT EXISTS company_name_idx_pcodenf ON company_name2 (name_pcode_nf);''')
 conn.execute('''
-CREATE INDEX company_name_idx_pcodesf ON company_name2 (name_pcode_sf);''')
+CREATE INDEX IF NOT EXISTS company_name_idx_pcodesf ON company_name2 (name_pcode_sf);''')
 conn.execute('''
-CREATE INDEX company_name_idx_md5 ON company_name2 (md5sum);''')
+CREATE INDEX IF NOT EXISTS company_name_idx_md5 ON company_name2 (md5sum);''')
 conn.execute('''
-CREATE INDEX title_idx_title ON title2 (title);''')
+CREATE INDEX IF NOT EXISTS title_idx_title ON title2 (title);''')
 conn.execute('''
-CREATE INDEX title_idx_imdb_id ON title2 (imdb_id);''')
+CREATE INDEX IF NOT EXISTS title_idx_imdb_id ON title2 (imdb_id);''')
 conn.execute('''
-CREATE INDEX title_idx_pcode ON title2 (phonetic_code);''')
+CREATE INDEX IF NOT EXISTS title_idx_pcode ON title2 (phonetic_code);''')
 conn.execute('''
-CREATE INDEX title_idx_epof ON title2 (episode_of_id);''')
+CREATE INDEX IF NOT EXISTS title_idx_epof ON title2 (episode_of_id);''')
 conn.execute('''
-CREATE INDEX title_idx_season_nr ON title2 (season_nr);''')
+CREATE INDEX IF NOT EXISTS title_idx_season_nr ON title2 (season_nr);''')
 conn.execute('''
-CREATE INDEX title_idx_episode_nr ON title2 (episode_nr);''')
+CREATE INDEX IF NOT EXISTS title_idx_episode_nr ON title2 (episode_nr);''')
 conn.execute('''
-CREATE INDEX title_idx_md5 ON title2 (md5sum);''')
+CREATE INDEX IF NOT EXISTS title_idx_md5 ON title2 (md5sum);''')
 conn.execute('''
-CREATE INDEX aka_name_idx_person ON aka_name2 (person_id);''')
+CREATE INDEX IF NOT EXISTS aka_name_idx_person ON aka_name2 (person_id);''')
 conn.execute('''
-CREATE INDEX aka_name_idx_pcodecf ON aka_name2 (name_pcode_cf);''')
+CREATE INDEX IF NOT EXISTS aka_name_idx_pcodecf ON aka_name2 (name_pcode_cf);''')
 conn.execute('''
-CREATE INDEX aka_name_idx_pcodenf ON aka_name2 (name_pcode_nf);''')
+CREATE INDEX IF NOT EXISTS aka_name_idx_pcodenf ON aka_name2 (name_pcode_nf);''')
 conn.execute('''
-CREATE INDEX aka_name_idx_pcode ON aka_name2 (surname_pcode);''')
+CREATE INDEX IF NOT EXISTS aka_name_idx_pcode ON aka_name2 (surname_pcode);''')
 conn.execute('''
-CREATE INDEX aka_name_idx_md5 ON aka_name2 (md5sum);''')
+CREATE INDEX IF NOT EXISTS aka_name_idx_md5 ON aka_name2 (md5sum);''')
 conn.execute('''
-CREATE INDEX aka_title_idx_movieid ON aka_title2 (movie_id);''')
+CREATE INDEX IF NOT EXISTS aka_title_idx_movieid ON aka_title2 (movie_id);''')
 conn.execute('''
-CREATE INDEX aka_title_idx_pcode ON aka_title2 (phonetic_code);''')
+CREATE INDEX IF NOT EXISTS aka_title_idx_pcode ON aka_title2 (phonetic_code);''')
 conn.execute('''
-CREATE INDEX aka_title_idx_epof ON aka_title2 (episode_of_id);''')
+CREATE INDEX IF NOT EXISTS aka_title_idx_epof ON aka_title2 (episode_of_id);''')
 conn.execute('''
-CREATE INDEX aka_title_idx_md5 ON aka_title2 (md5sum);''')
+CREATE INDEX IF NOT EXISTS aka_title_idx_md5 ON aka_title2 (md5sum);''')
 conn.execute('''
-CREATE INDEX cast_info_idx_pid ON cast_info2 (person_id);''')
+CREATE INDEX IF NOT EXISTS cast_info_idx_pid ON cast_info2 (person_id);''')
 conn.execute('''
-CREATE INDEX cast_info_idx_mid ON cast_info2 (movie_id);''')
+CREATE INDEX IF NOT EXISTS cast_info_idx_mid ON cast_info2 (movie_id);''')
 conn.execute('''
-CREATE INDEX cast_info_idx_cid ON cast_info2 (person_role_id);''')
+CREATE INDEX IF NOT EXISTS cast_info_idx_cid ON cast_info2 (person_role_id);''')
 conn.execute('''
-CREATE INDEX complete_cast_idx_mid ON complete_cast2 (movie_id);''')
+CREATE INDEX IF NOT EXISTS complete_cast_idx_mid ON complete_cast2 (movie_id);''')
 conn.execute('''
-CREATE INDEX keyword_idx_keyword ON keyword2 (keyword);''')
+CREATE INDEX IF NOT EXISTS keyword_idx_keyword ON keyword2 (keyword);''')
 conn.execute('''
-CREATE INDEX keyword_idx_pcode ON keyword2 (phonetic_code);''')
+CREATE INDEX IF NOT EXISTS keyword_idx_pcode ON keyword2 (phonetic_code);''')
 conn.execute('''
-CREATE INDEX movie_keyword_idx_mid ON movie_keyword2 (movie_id);''')
+CREATE INDEX IF NOT EXISTS movie_keyword_idx_mid ON movie_keyword2 (movie_id);''')
 conn.execute('''
-CREATE INDEX movie_keyword_idx_keywordid ON movie_keyword2 (keyword_id);''')
+CREATE INDEX IF NOT EXISTS movie_keyword_idx_keywordid ON movie_keyword2 (keyword_id);''')
 conn.execute('''
-CREATE INDEX movie_link_idx_mid ON movie_link2 (movie_id);''')
+CREATE INDEX IF NOT EXISTS movie_link_idx_mid ON movie_link2 (movie_id);''')
 conn.execute('''
-CREATE INDEX movie_info_idx_mid ON movie_info2 (movie_id);''')
+CREATE INDEX IF NOT EXISTS movie_info_idx_mid ON movie_info2 (movie_id);''')
 conn.execute('''
-CREATE INDEX movie_info_idx_idx_mid ON movie_info_idx2 (movie_id);''')
+CREATE INDEX IF NOT EXISTS movie_info_idx_idx_mid ON movie_info_idx2 (movie_id);''')
 conn.execute('''
-CREATE INDEX movie_info_idx_idx_infotypeid ON movie_info_idx2 (info_type_id);''')
+CREATE INDEX IF NOT EXISTS movie_info_idx_idx_infotypeid ON movie_info_idx2 (info_type_id);''')
 conn.execute('''
-CREATE INDEX movie_info_idx_idx_info ON movie_info_idx2 (info);''')
+CREATE INDEX IF NOT EXISTS movie_info_idx_idx_info ON movie_info_idx2 (info);''')
 conn.execute('''
-CREATE INDEX movie_companies_idx_mid ON movie_companies2 (movie_id);''')
+CREATE INDEX IF NOT EXISTS movie_companies_idx_mid ON movie_companies2 (movie_id);''')
 conn.execute('''
-CREATE INDEX movie_companies_idx_cid ON movie_companies2 (company_id);''')
+CREATE INDEX IF NOT EXISTS movie_companies_idx_cid ON movie_companies2 (company_id);''')
 conn.execute('''
-CREATE INDEX person_info_idx_pid ON person_info2 (person_id);''')
+CREATE INDEX IF NOT EXISTS person_info_idx_pid ON person_info2 (person_id);''')
 
 
 # drop original tables
 
 conn.execute('''
-drop table if exists title;
+DROP TABLE title;
 ''')
 
 conn.execute('''
-drop table if exists if exists person_info;
+DROP TABLE person_info;
 ''')
 
 conn.execute('''
-drop table if exists aka_name;
+DROP TABLE aka_name;
 ''')
 
 conn.execute('''
-drop table if exists aka_title;
+DROP TABLE aka_title;
 ''')
 
 conn.execute('''
-drop table if exists movie_keyword;
+DROP TABLE movie_keyword;
 ''')
 
 conn.execute('''
-drop table if exists movie_info;
+DROP TABLE movie_info;
 ''')
 
 conn.execute('''
-drop table if exists movie_info_idx;
+DROP TABLE movie_info_idx;
 ''')
 
 conn.execute('''
-drop table if exists keyword;
+DROP TABLE keyword;
 ''')
 
 conn.execute('''
-drop table if exists cast_info;
+DROP TABLE cast_info;
 ''')
 
 conn.execute('''
-drop table if exists name;
+DROP TABLE name;
 ''')
 
 conn.execute('''
-drop table if exists movie_companies;
+DROP TABLE movie_companies;
 ''')
 
 conn.execute('''
-drop table if exists company_name;
+DROP TABLE company_name;
 ''')
 
 conn.execute('''
-drop table if exists company_type;
+DROP TABLE company_type;
 ''')
 
 conn.execute('''
-drop table if exists role_type;
+DROP TABLE role_type;
 ''')
 
 conn.execute('''
-drop table if exists char_name;
+DROP TABLE char_name;
 ''')
 
 conn.execute('''
-drop table if exists complete_cast;
+DROP TABLE complete_cast;
 ''')
 
 conn.execute('''
-drop table if exists comp_cast_type;
+DROP TABLE comp_cast_type;
 ''')
 
 #execute all scripts
