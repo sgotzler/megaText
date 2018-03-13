@@ -1,0 +1,1066 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{Analysis - Action and Adventure Genre}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \hypertarget{mapping-the-television-mega-text}{%
+\section{Mapping The Television
+Mega-Text}\label{mapping-the-television-mega-text}}
+
+\hypertarget{episode-01---working-class-content-in-the-action-adventure-genre}{%
+\subsection{Episode 01 - Working Class Content in the Action Adventure
+Genre}\label{episode-01---working-class-content-in-the-action-adventure-genre}}
+
+This notebook records our preliminary analysis of working-class content
+in programs from the action adventure genre over the course of the
+1950s. Commentary and explanation on analytical methods and process will
+be provided throughout.
+
+Once we have published the dataset, and this notebook on github,
+television scholars will be able to reproduce our research, and launch
+studies of their own.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}1}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} To begin we import the pandas data analysis package for python3 as \PYZdq{}pd\PYZdq{}}
+        
+        \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+        \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+        \PY{k+kn}{from} \PY{n+nn}{pandas} \PY{k}{import} \PY{n}{DataFrame}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}2}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} we will also import the matplotlib package which will be used to create our visualizations later on}
+        
+        \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+        \PY{o}{\PYZpc{}}\PY{k}{matplotlib} inline
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} Next, we use pandas command read\PYZus{}csv to read our primary dataframe of nineteen fifties television into juptyer}
+        
+        \PY{n}{df}\PY{o}{=}\PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{/Users/user/Desktop/megaText/analysis/frames.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{index\PYZus{}col}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{the-data-frame}{%
+\subsubsection{The Data Frame}\label{the-data-frame}}
+
+We've designated the data from this .csv file, as ``df'' to denote our
+primary data frame.
+
+Our data frame contains 14 different series, and drawn together from a
+combination of sources including imdb.com, and Vincent Terrace's
+\emph{Encyclopedia of Television}.
+
+In the data frame, these series are displayed as the following columns:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{realtitle} - (assigned by us; defaults to Terrace's title when
+  matched otherwise displays imdb title)
+\item
+  \textbf{program\_type} - (from Terrace)
+\item
+  \textbf{program\_genre} - (from Terrace)
+\item
+  \textbf{network} - (from Terrace)
+\item
+  \textbf{program\_description} - (from Terrace)
+\item
+  \textbf{first\_air\_year} - (from Terrace)
+\item
+  \textbf{last\_air\_year} - (from Terrace)
+\item
+  \textbf{genre(3)} - (from imdb; the number denotes the info\_type\_id
+  in the imdb dataset)
+\item
+  \textbf{plot(98)} - (from imdb)
+\item
+  \textbf{trivia(17)} - (from imdb)
+\item
+  \textbf{program\_title} - (from Terrace)
+\item
+  \textbf{movie\_id} - (from imdb)
+\item
+  \textbf{kind\_id} - (from imdb; denotes the type of programming
+  content, i.e.~series, episode, or tv movie)
+\item
+  \textbf{title} - (from imdb)
+\end{itemize}
+
+Using the shape attribute in pandas, we can get a sense of the size of
+our data set
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}4}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} df.shape returns a tuple of (2563, 14); this means we have entries for 2563 unique programs across the decade, each with data corresponding to our 14 series in columns }
+        
+        \PY{n}{df}\PY{o}{.}\PY{n}{shape}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}4}]:} (2563, 14)
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}5}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} we can further validate our data frame\PYZsq{}s features by simply calling df; and using df.info for a description of the data\PYZsq{}s qualities}
+        
+        \PY{n}{df}
+        
+        \PY{n}{df}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}5}]:}                            realtitle program\_type program\_genre network  \textbackslash{}
+        1           Adventures in Paradise.        Series     Adventure     ABC   
+        2   The Adventures of a Jungle Boy.        Series     Adventure    Syn.   
+        3                       Jungle Boy.        Series     Adventure    Syn.   
+        4       The Adventures of Superman.        Series     Adventure    Syn.   
+        5                         Superman.        Series     Adventure    Syn.   
+        
+                                         program\_description  first\_air\_year  \textbackslash{}
+        1   Adam Troy, a graduate of Yale University (cla{\ldots}          1959.0   
+        2   A young boy (unnamed), the lone survivor of a{\ldots}          1957.0   
+        3   The shortened title for The Adventures of a J{\ldots}          1957.0   
+        4   As the theme music (written by Leon Klatzkin){\ldots}          1952.0   
+        5   The shortened title for the 1953 series The A{\ldots}          1953.0   
+        
+           last\_air\_year                                              genre  \textbackslash{}
+        1         1962.0                                     [ 'Adventure']   
+        2            NaN                             ['Adventure' 'Family']   
+        3            NaN                             ['Adventure' 'Family']   
+        4         1957.0  [ 'Action' 'Adventure' 'Crime' 'Family' 'Sci-Fi']   
+        5         1957.0  [ 'Action' 'Adventure' 'Crime' 'Family' 'Sci-Fi']   
+        
+                                                        plot  \textbackslash{}
+        1  ['Adam Troy was an American Korean War veteran{\ldots}   
+        2                                                NaN   
+        3                                                NaN   
+        4  [None\textbackslash{}n '"Faster than a speeding bullet! More {\ldots}   
+        5  [None\textbackslash{}n '"Faster than a speeding bullet! More {\ldots}   
+        
+                                                      trivia  \textbackslash{}
+        1                                             [None]   
+        2                                             [None]   
+        3                                             [None]   
+        4  ['The announcer who read, "Faster than a speed{\ldots}   
+        5  ['The announcer who read, "Faster than a speed{\ldots}   
+        
+                               program\_title  movie\_id  kind\_id  \textbackslash{}
+        1           Adventures in Paradise.      79394        2   
+        2   The Adventures of a Jungle Boy.      79636        2   
+        3                       Jungle Boy.      79636        2   
+        4       The Adventures of Superman.      79768        2   
+        5                         Superman.      79768        2   
+        
+                                title  
+        1      Adventures in Paradise  
+        2  Adventures of a Jungle Boy  
+        3  Adventures of a Jungle Boy  
+        4      Adventures of Superman  
+        5      Adventures of Superman  
+\end{Verbatim}
+            
+    \hypertarget{the-data-set-at-a-glance}{%
+\subsubsection{The Data Set at a
+Glance}\label{the-data-set-at-a-glance}}
+
+We can now begin to analyze our data with some high-level
+visualizations.
+
+For instance, in our study we want to begin by tracking the prevalence
+of different genres over the course of the decade.
+
+To get a better idea of how genre looks in the fifties, we'll look first
+at the overall share of programming by genre for the whole decade, and
+second we can see the distribution of genre types over the course of the
+decade.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} \PY{n}{Fig1} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{program\PYZus{}genre}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{kind}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{barh}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{,} \PY{n}{title}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Genre Counts}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_8_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}202}]:} \PY{n}{Fig1}\PY{o}{.}\PY{n}{figure}\PY{o}{.}\PY{n}{savefig}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{genre\PYZus{}counts.png}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{creating-the-subset-for-analysis}{%
+\subsection{Creating the Subset for
+Analysis}\label{creating-the-subset-for-analysis}}
+
+Using pandas we will now be able to cull out a specific subset of the
+data for analysis.
+
+Using Boolean Indexing and String Handling, we can create a new
+dataframe `adv' that includes only those programs whose genre field
+contains ``Adventure'' or ``Action'' and whose program\_genre field is
+``Adventure''.
+
+This gives us a new data frame of only action adventure programs to work
+with in analysis.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}71}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} using boolean indexing and string handling to create subset}
+         
+         \PY{n}{adv} \PY{o}{=} \PY{n}{df}\PY{p}{[}\PY{p}{(}\PY{n}{df}\PY{o}{.}\PY{n}{genre}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{contains}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Adventure}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{na}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}\PY{p}{)} \PY{o}{|} \PY{p}{(}\PY{n}{df}\PY{o}{.}\PY{n}{genre}\PY{o}{.}\PY{n}{str}\PY{o}{.}\PY{n}{contains}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Action}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{na}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}\PY{p}{)} \PY{o}{|} \PY{p}{(}\PY{n}{df}\PY{o}{.}\PY{n}{program\PYZus{}genre} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Adventure}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{]}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}81}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} we can see, using .info and .shape; the contours of our new subset data frame}
+         \PY{c+c1}{\PYZsh{}\PYZsh{} adv.info}
+         \PY{c+c1}{\PYZsh{}\PYZsh{} adv.shape, (124,14)}
+         
+         \PY{c+c1}{\PYZsh{}\PYZsh{} now using sort values, and stipulating only our conditional series from the srting handling, we should be able to quickly verify our results}
+         
+         \PY{n}{adv}\PY{o}{.}\PY{n}{sort\PYZus{}values}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{first\PYZus{}air\PYZus{}year}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{ascending}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)} \PY{p}{[}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{realtitle}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{program\PYZus{}genre}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{first\PYZus{}air\PYZus{}year}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{genre}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{]}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}81}]:}                                     realtitle     program\_genre  \textbackslash{}
+         932     Captain Video and His Video Rangers.    Science Fiction   
+         931     Captain Video and His Video Rangers.    Science Fiction   
+         631                         Follow That Man.        Crime Drama   
+         632                       Man Against Crime.        Crime Drama   
+         625            Rocky King, Inside Detective.        Crime Drama   
+         100                Tom Corbett, Space Cadet.          Adventure   
+         624                        Inside Detective.        Crime Drama   
+         71                             Space Patrol.          Adventure   
+         52          Ding Howe and the Flying Tigers.          Adventure   
+         116         The Adventures of Dr. Fu Manchu.          Adventure   
+         397        The Adventures of Cyclone Malone.           Children   
+         53                            Flying Tigers.          Adventure   
+         67                      Shadow of the Cloak.          Adventure   
+         674            The Gallery ofMme. Liu Tsong.        Crime Drama   
+         29                     Dangerous Assignment.          Adventure   
+         60                      Ramar of the Jungle.          Adventure   
+         75                    Terry and the Pirates.          Adventure   
+         667                The Cases of Eddie Drake.        Crime Drama   
+         709                          Victory at Sea.        Documentary   
+         25                              China Smith.          Adventure   
+         96               The Affairs of China Smith.          Adventure   
+         4                The Adventures of Superman.          Adventure   
+         97                              China Smith.          Adventure   
+         24               The Affairs of China Smith.          Adventure   
+         13                        Biff Baker, U.S.A.          Adventure   
+         12                           The Atom Squad.          Adventure   
+         5                                  Superman.          Adventure   
+         6                 Superman reference titles.          Adventure   
+         54    Major Del Conway of the Flying Tigers.          Adventure   
+         623                             I'm the Law.        Crime Drama   
+         ..                                        {\ldots}               {\ldots}   
+         3                                Jungle Boy.          Adventure   
+         2            The Adventures of a Jungle Boy.          Adventure   
+         643           Mickey Spillane's Mike Hammer.        Crime Drama   
+         17                               Cannonball.          Adventure   
+         656                              Peter Gunn.        Crime Drama   
+         644                             Mike Hammer.        Crime Drama   
+         43               Adventures at Scott Island.          Adventure   
+         704                   Danger Is My Busienss.        Documentary   
+         166                                  Flight.          Anthology   
+         107                         Yancy Derringer.          Adventure   
+         72                             Steve Canyon.          Adventure   
+         119                          The Highwayman.          Adventure   
+         114                    Kimbar of the Jungle.          Adventure   
+         596                         77 Sunset Strip.        Crime Drama   
+         109                              Counterspy.          Adventure   
+         56                        Northwest Passage.          Adventure   
+         358                      Spunky and Tadpole.            Cartoon   
+         8            The Adventures of the Sea Hawk.          Adventure   
+         9                                  Sea Hawk.          Adventure   
+         15                             Bold Venture.          Adventure   
+         346                            Clutch Cargo.            Cartoon   
+         61                                Riverboat.          Adventure   
+         686                        The Untouchables.        Crime Drama   
+         670                          The Detectives.        Crime Drama   
+         94                The Man and the Challenge.          Adventure   
+         620                            Hawaiian Eye.        Crime Drama   
+         47                             Hudson's Bay.          Adventure   
+         85                             The Alaskans.          Adventure   
+         101                     The Troubleshooters.          Adventure   
+         1                    Adventures in Paradise.          Adventure   
+         
+              first\_air\_year                                              genre  
+         932          1949.0          [ 'Action' 'Adventure' 'Family' 'Sci-Fi']  
+         931          1949.0          [ 'Action' 'Animation' 'Family' 'Sci-Fi']  
+         631          1949.0             [ 'Action' 'Crime' 'Drama' 'Thriller']  
+         632          1949.0             [ 'Action' 'Crime' 'Drama' 'Thriller']  
+         625          1950.0              [ 'Action' 'Crime' 'Drama' 'Mystery']  
+         100          1950.0  [ 'Action' 'Adventure' 'Drama' 'Sci-Fi' 'Thril{\ldots}  
+         624          1950.0              [ 'Action' 'Crime' 'Drama' 'Mystery']  
+         71           1950.0                   [ 'Action' 'Adventure' 'Sci-Fi']  
+         52           1950.0     [ 'Action' 'Adventure' 'Drama' 'Family' 'War']  
+         116          1950.0                                      ['Adventure']  
+         397          1950.0                  [ 'Adventure' 'Family' 'Western']  
+         53           1951.0     [ 'Action' 'Adventure' 'Drama' 'Family' 'War']  
+         67           1951.0           [ 'Action' 'Drama' 'Mystery' 'Thriller']  
+         674          1951.0                           [ 'Adventure' 'Mystery']  
+         29           1952.0                                      ['Adventure']  
+         60           1952.0                                     [ 'Adventure']  
+         75           1952.0                    [ 'Action' 'Adventure' 'Drama']  
+         667          1952.0            [ 'Action' 'Adventure' 'Crime' 'Drama']  
+         709          1952.0                    [ 'Action' 'Documentary' 'War']  
+         25           1952.0                                     [ 'Adventure']  
+         96           1952.0                     ['Action' 'Adventure' 'Drama']  
+         4            1952.0  [ 'Action' 'Adventure' 'Crime' 'Family' 'Sci-Fi']  
+         97           1952.0                     ['Action' 'Adventure' 'Drama']  
+         24           1952.0                                     [ 'Adventure']  
+         13           1952.0                                      ['Adventure']  
+         12           1953.0        ['Adventure' 'Fantasy' 'Sci-Fi' 'Thriller']  
+         5            1953.0  [ 'Action' 'Adventure' 'Crime' 'Family' 'Sci-Fi']  
+         6            1953.0  [ 'Action' 'Adventure' 'Crime' 'Family' 'Sci-Fi']  
+         54           1953.0     [ 'Action' 'Adventure' 'Drama' 'Family' 'War']  
+         623          1953.0                         ['Action' 'Crime' 'Drama']  
+         ..              {\ldots}                                                {\ldots}  
+         3            1957.0                             ['Adventure' 'Family']  
+         2            1957.0                             ['Adventure' 'Family']  
+         643          1958.0              [ 'Action' 'Crime' 'Drama' 'Mystery']  
+         17           1958.0                             [ 'Adventure' 'Drama']  
+         656          1958.0              [ 'Action' 'Crime' 'Drama' 'Mystery']  
+         644          1958.0              [ 'Action' 'Crime' 'Drama' 'Mystery']  
+         43           1958.0                                     [ 'Adventure']  
+         704          1958.0                                      ['Adventure']  
+         166          1958.0                                      ['Adventure']  
+         107          1958.0                  [ 'Action' 'Adventure' 'Western']  
+         72           1958.0                                      ['Adventure']  
+         119          1958.0                                      ['Adventure']  
+         114          1958.0                             [ 'Adventure' 'Short']  
+         596          1958.0                        [ 'Action' 'Crime' 'Drama']  
+         109          1958.0                                     [ 'Adventure']  
+         56           1958.0                                     [ 'Adventure']  
+         358          1958.0                 ['Adventure' 'Animation' 'Family']  
+         8            1959.0                                         ['Action']  
+         9            1959.0                                         ['Action']  
+         15           1959.0                                     [ 'Adventure']  
+         346          1959.0       [ 'Action' 'Adventure' 'Animation' 'Family']  
+         61           1959.0                           [ 'Adventure' 'Western']  
+         686          1959.0                        [ 'Action' 'Crime' 'Drama']  
+         670          1959.0                        [ 'Action' 'Crime' 'Drama']  
+         94           1959.0                                      ['Adventure']  
+         620          1959.0    [ 'Action' 'Adventure' 'Crime' 'Drama' 'Music']  
+         47           1959.0                   ['Adventure' 'Family' 'Western']  
+         85           1959.0                                     [ 'Adventure']  
+         101          1959.0                                      ['Adventure']  
+         1            1959.0                                     [ 'Adventure']  
+         
+         [124 rows x 4 columns]
+\end{Verbatim}
+            
+    \hypertarget{exporting-the-subset-for-for-coding}{%
+\subsubsection{Exporting the Subset for For
+Coding}\label{exporting-the-subset-for-for-coding}}
+
+We can now export the subset of the data, and code it qaulitatively for
+working class content.
+
+To export our new subset data frame as a .csv file we use:
+\emph{adv.to\_csv(`adv.csv', encoding=`utf-8')}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}82}]:} \PY{n}{adv}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{adv.csv}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{encoding}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{utf\PYZhy{}8}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{coding-for-working-class-content}{%
+\subsection{Coding For Working Class
+Content}\label{coding-for-working-class-content}}
+
+To code the television programs in our subset, we developed a taxonomy
+for descriptive assessments of both occupations, and settings depicted
+in the programs.
+
+After assigning these descriptive categories, we then evaluated each
+show on a binary scale for whether it contained working-class content or
+not.
+
+The following tables show our taxonomy for this work:
+
+\textbf{ADD in tables using mark down}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}44}]:} \PY{n}{adv\PYZus{}c}\PY{o}{=}\PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{/Users/user/Desktop/megaText/analysis/adv\PYZus{}c.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}52}]:} \PY{n}{adv\PYZus{}c}\PY{o}{.}\PY{n}{sort\PYZus{}values}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{first\PYZus{}air\PYZus{}year}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{ascending}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}\PY{p}{[}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{realtitle}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{first\PYZus{}air\PYZus{}year}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{setting\PYZus{}type}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{occupation\PYZus{}type}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{evaluation\PYZus{}id}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{]}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}52}]:}                                     realtitle  first\_air\_year  \textbackslash{}
+         0                           Follow That Man.             1949   
+         1                         Man Against Crime.             1949   
+         2       Captain Video and His Video Rangers.             1949   
+         3       Captain Video and His Video Rangers.             1949   
+         4           Ding Howe and the Flying Tigers.             1950   
+         5                              Space Patrol.             1950   
+         6                  Tom Corbett, Space Cadet.             1950   
+         7           The Adventures of Dr. Fu Manchu.             1950   
+         8          The Adventures of Cyclone Malone.             1950   
+         9                          Inside Detective.             1950   
+         10             Rocky King, Inside Detective.             1950   
+         12                      Shadow of the Cloak.             1951   
+         13             The Gallery ofMme. Liu Tsong.             1951   
+         11                            Flying Tigers.             1951   
+         14               The Adventures of Superman.             1952   
+         15                        Biff Baker, U.S.A.             1952   
+         16               The Affairs of China Smith.             1952   
+         17                              China Smith.             1952   
+         18                     Dangerous Assignment.             1952   
+         19                      Ramar of the Jungle.             1952   
+         20                    Terry and the Pirates.             1952   
+         21               The Affairs of China Smith.             1952   
+         22                              China Smith.             1952   
+         23                 The Cases of Eddie Drake.             1952   
+         24                           Victory at Sea.             1952   
+         29                              I'm the Law.             1953   
+         30                 Jimmy Hughes, Rookie Cop.             1953   
+         28    Major Del Conway of the Flying Tigers.             1953   
+         31                             Flash Gordon.             1953   
+         26                Superman reference titles.             1953   
+         ..                                        {\ldots}             {\ldots}   
+         77                             Scott Island.             1957   
+         83           The Adventures of William Tell.             1957   
+         104                                  Flight.             1958   
+         110                   Danger Is My Busienss.             1958   
+         109                              Peter Gunn.             1958   
+         108                             Mike Hammer.             1958   
+         107           Mickey Spillane's Mike Hammer.             1958   
+         106                         77 Sunset Strip.             1958   
+         105                      Spunky and Tadpole.             1958   
+         103                          The Highwayman.             1958   
+         101                              Counterspy.             1958   
+         100                         Yancy Derringer.             1958   
+         99                             Steve Canyon.             1958   
+         98                        Northwest Passage.             1958   
+         97               Adventures at Scott Island.             1958   
+         96                               Cannonball.             1958   
+         102                    Kimbar of the Jungle.             1958   
+         121                            Hawaiian Eye.             1959   
+         120                            Clutch Cargo.             1959   
+         119                     The Troubleshooters.             1959   
+         118               The Man and the Challenge.             1959   
+         117                            The Alaskans.             1959   
+         113                                Sea Hawk.             1959   
+         115                            Hudson's Bay.             1959   
+         114                            Bold Venture.             1959   
+         112          The Adventures of the Sea Hawk.             1959   
+         111                  Adventures in Paradise.             1959   
+         122                          The Detectives.             1959   
+         116                               Riverboat.             1959   
+         123                        The Untouchables.             1959   
+         
+                             setting\_type              occupation\_type  evaluation\_id  
+         0                  New York City                    Detective              2  
+         1                  New York City                    Detective              2  
+         2                 Sci-Fi Fantasy     Crime Solving (informal)              1  
+         3                 Sci-Fi Fantasy     Crime Solving (informal)              1  
+         4    Particular Country (not US)                     Military              2  
+         5                 Sci-Fi Fantasy                     Military              2  
+         6                 Sci-Fi Fantasy                     Military              1  
+         7                      Detective  Particular Country (not US)              1  
+         8                        Western     Crime Solving (informal)              1  
+         9                  New York City                    Detective              2  
+         10                 New York City                    Detective              2  
+         12          International Varied                        Spies              1  
+         13               Particular city              Business Person              1  
+         11   Particular Country (not US)                     Military              2  
+         14                Sci-Fi Fantasy                   Newspapers              1  
+         15          International Varied              Business Person              1  
+         16   Particular Country (not US)     Crime Solving (informal)              2  
+         17   Particular Country (not US)     Crime Solving (informal)              2  
+         18          International Varied                        Spies              1  
+         19   Particular Country (not US)                    Scientist              1  
+         20   Particular Country (not US)                     Aviation              1  
+         21   Particular Country (not US)     Crime Solving (informal)              2  
+         22   Particular Country (not US)     Crime Solving (informal)              2  
+         23                 New York City                    Detective              1  
+         24                  On the ocean                     Military              1  
+         29                 New York City                    Detective              1  
+         30                 New York City                       Police              2  
+         28   Particular Country (not US)                     Military              2  
+         31                Sci-Fi Fantasy                    Scientist              1  
+         26                Sci-Fi Fantasy                   Newspapers              1  
+         ..                           {\ldots}                          {\ldots}            {\ldots}  
+         77               Particular city                     Maritime              1  
+         83             historical period                     Military              1  
+         104         International Varied                     Military              1  
+         110                          NaN                          NaN              1  
+         109              Particular city                    Detective              1  
+         108                New York City                    Detective              1  
+         107                New York City                    Detective              1  
+         106              Particular city                    Detective              1  
+         105                     Children                          NaN              1  
+         103            historical period                     Criminal              2  
+         101         International Varied                        Spies              1  
+         100            historical period              Business Person              2  
+         99               Particular city                     Military              1  
+         98             historical period     Crime Solving (informal)              1  
+         97               Particular city                     Maritime              1  
+         96   Particular Country (not US)               Transportation              2  
+         102  Particular Country (not US)     Crime Solving (informal)              1  
+         121  Particular Country (not US)                    Detective              1  
+         120         International Varied     Crime Solving (informal)              1  
+         119         International Varied                 Construction              2  
+         118         International Varied                    Scientist              1  
+         117            historical period                Entertainment              2  
+         113  Particular Country (not US)                    Scientist              1  
+         115            historical period                       Hunter              2  
+         114  Particular Country (not US)                     Maritime              1  
+         112  Particular Country (not US)                    Scientist              1  
+         111  Particular Country (not US)                     Maritime              1  
+         122                New York City                    Detective              1  
+         116            historical period                     Maritime              2  
+         123            historical period                    Detective              2  
+         
+         [124 rows x 5 columns]
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}58}]:} \PY{n}{adv\PYZus{}c}\PY{o}{.}\PY{n}{info} \PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 124 entries, 0 to 123
+Data columns (total 20 columns):
+Unnamed: 0             124 non-null int64
+realtitle              124 non-null object
+program\_type           124 non-null object
+program\_genre          124 non-null object
+network                121 non-null object
+program\_description    124 non-null object
+first\_air\_year         124 non-null int64
+last\_air\_year          62 non-null float64
+genre                  124 non-null object
+plot                   48 non-null object
+trivia                 124 non-null object
+program\_title          124 non-null object
+movie\_id               124 non-null int64
+kind\_id                124 non-null int64
+title                  124 non-null object
+setting\_type           120 non-null object
+setting\_id             120 non-null float64
+occupation\_type        115 non-null object
+occupation\_id          115 non-null float64
+evaluation\_id          124 non-null int64
+dtypes: float64(3), int64(5), object(12)
+memory usage: 19.5+ KB
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}46}]:} \PY{c+c1}{\PYZsh{}\PYZsh{}need to clean adv\PYZus{}c.csv for errors}
+         
+         \PY{n}{adv\PYZus{}c}\PY{o}{.}\PY{n}{occupation\PYZus{}type}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{kind}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{pie}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_19_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}62}]:} \PY{n}{adv\PYZus{}c}\PY{o}{.}\PY{n}{setting\PYZus{}type}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{kind}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{pie}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_20_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}121}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} add note explaining what this is}
+          \PY{n}{wc\PYZus{}set} \PY{o}{=} \PY{n}{adv\PYZus{}c}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{setting\PYZus{}type}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{evaluation\PYZus{}id}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{unstack}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{fillna}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
+          \PY{n}{wc\PYZus{}set}\PY{o}{.}\PY{n}{sort\PYZus{}values}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{ascending}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}121}]:} evaluation\_id                 1   2
+          setting\_type                       
+          historical period            15  12
+          Particular Country (not US)  17   8
+          Particular city               9   6
+          New York City                 6   5
+          Outdoors                      2   5
+          Historical period             0   2
+          International Varied         11   2
+          On the ocean                  3   1
+          Sci-Fi Fantasy                9   1
+          Children                      4   0
+          Detective                     1   0
+          Western                       1   0
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}127}]:} \PY{n}{wc\PYZus{}set}\PY{o}{.}\PY{n}{sort\PYZus{}values}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{ascending}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{kind}\PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{barh}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{figsize}\PY{o}{=} \PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_22_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}124}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} add note explaining what this is}
+          \PY{n}{wc\PYZus{}occ} \PY{o}{=} \PY{n}{adv\PYZus{}c}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{occupation\PYZus{}type}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{evaluation\PYZus{}id}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{unstack}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{fillna}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
+          \PY{n}{wc\PYZus{}occ}\PY{o}{.}\PY{n}{sort\PYZus{}values}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{ascending}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}124}]:} evaluation\_id                 1   2
+          occupation\_type                    
+          Crime Solving (informal)     21  11
+          Detective                    12   5
+          Military                      7   4
+          Maritime                      6   3
+          Farm                          2   3
+          Police                        0   3
+          Transportation                0   2
+          Aviation                      2   2
+          Entertainment                 0   2
+          Education                     0   2
+          Hunter                        0   1
+          Business Person               2   1
+          Medicine                      0   1
+          Criminal                      0   1
+          Construction                  0   1
+          Forestry                      1   0
+          Native                        1   0
+          Newspapers                    3   0
+          Particular Country (not US)   1   0
+          Scientist                     7   0
+          Spies                         7   0
+          military                      1   0
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}129}]:} \PY{n}{wc\PYZus{}occ}\PY{o}{.}\PY{n}{sort\PYZus{}values}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{ascending}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{kind}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{barh}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_24_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \hypertarget{genre-line-plot-problem-below}{%
+\section{Genre Line Plot Problem
+Below}\label{genre-line-plot-problem-below}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}24}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} need to limit this by top ten most prevalent genres}
+         
+         \PY{n}{gen\PYZus{}decade} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{first\PYZus{}air\PYZus{}year}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{program\PYZus{}genre}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{unstack}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{fillna}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
+         \PY{n}{gen\PYZus{}decade}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}24}]:} program\_genre    Adventure   Anthology   Cartoon   Children   Comedy  \textbackslash{}
+         first\_air\_year                                                         
+         1947.0                   0           2         0          4        1   
+         1948.0                   0           6         0          2        2   
+         1949.0                   0           8         2          6        7   
+         1950.0                   5          25         1         17       14   
+         1951.0                   6          17         0          6       16   
+         1952.0                  11          26         0          3       20   
+         1953.0                   9          21         1          2       19   
+         1954.0                  13          29         0          2       18   
+         1955.0                  13          27         2          4       27   
+         1956.0                  17          12         2          0       11   
+         1957.0                  17          19         6          2       16   
+         1958.0                  14          24         2          1       10   
+         1959.0                  14           8         7          0       12   
+         
+         program\_genre    Comedy-Drama   Contest   Crime Drama   Discussion  \textbackslash{}
+         first\_air\_year                                                       
+         1947.0                      0         0             0            0   
+         1948.0                      0         0             0            0   
+         1949.0                      3         0             7            1   
+         1950.0                      0         0            13            1   
+         1951.0                      0         0            15            2   
+         1952.0                      1         0             5            0   
+         1953.0                      0         0             5            0   
+         1954.0                      1         0             3            0   
+         1955.0                      0         0             5            0   
+         1956.0                      0         1             3            0   
+         1957.0                      0         0            15            0   
+         1958.0                      0         0            15            0   
+         1959.0                      0         0            19            0   
+         
+         program\_genre    Documentary   {\ldots}     Musical Drama   Mystery  \textbackslash{}
+         first\_air\_year                 {\ldots}                               
+         1947.0                     0   {\ldots}                 0         2   
+         1948.0                     0   {\ldots}                 0         0   
+         1949.0                     0   {\ldots}                 0         0   
+         1950.0                     0   {\ldots}                 0         0   
+         1951.0                     1   {\ldots}                 0         1   
+         1952.0                     2   {\ldots}                 1         0   
+         1953.0                     0   {\ldots}                 0         0   
+         1954.0                     1   {\ldots}                 0         1   
+         1955.0                     1   {\ldots}                 0         0   
+         1956.0                     0   {\ldots}                 0         0   
+         1957.0                     2   {\ldots}                 0         2   
+         1958.0                     1   {\ldots}                 0         0   
+         1959.0                     0   {\ldots}                 0         0   
+         
+         program\_genre    Science Fiction   Serial   Testimonial   Travel   Tribute  \textbackslash{}
+         first\_air\_year                                                               
+         1947.0                         0        0             0        0         0   
+         1948.0                         0        0             1        0         0   
+         1949.0                         2        1             0        0         0   
+         1950.0                         1        3             0        0         0   
+         1951.0                         0        3             0        0         0   
+         1952.0                         1        1             0        0         1   
+         1953.0                         1        4             0        0         0   
+         1954.0                         0       10             0        0         0   
+         1955.0                         0        0             0        0         0   
+         1956.0                         0        2             0        0         0   
+         1957.0                         0        1             0        0         0   
+         1958.0                         0        4             0        0         0   
+         1959.0                         0        0             0        1         0   
+         
+         program\_genre    Variety   Western   Women  
+         first\_air\_year                              
+         1947.0                 1         0       0  
+         1948.0                10         0       1  
+         1949.0                32         1       2  
+         1950.0                66         2       2  
+         1951.0                35         4       0  
+         1952.0                20         1       1  
+         1953.0                21         3       1  
+         1954.0                19         1       2  
+         1955.0                24        10       2  
+         1956.0                25         7       0  
+         1957.0                19        11       0  
+         1958.0                 6        13       0  
+         1959.0                10        12       0  
+         
+         [13 rows x 26 columns]
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{}\PYZsh{} this doesn\PYZsq{}t work \PYZhy{}\PYZhy{} trying to create line plot of 10 most prevalent genres, grouped by first\PYZus{}air\PYZus{}year across the decade}
+        
+        \PY{n}{gen\PYZus{}decade\PYZus{}trim} \PY{o}{=} \PY{n}{gen\PYZus{}decade}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{n}{columns}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{program\PYZus{}genre}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Contest}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Serial}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Discussion}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Cartoon}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Interview}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Women}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Documentary}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Human Interest}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Mystery}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Comedy\PYZhy{}Drama}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Music}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Tribute}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Travel}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Musical Drama}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Information}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Testimonial}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}26}]:} \PY{n}{gen\PYZus{}decade}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xticks}\PY{o}{=}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{1947}\PY{p}{,}\PY{l+m+mi}{1948}\PY{p}{,}\PY{l+m+mi}{1949}\PY{p}{,}\PY{l+m+mi}{1950}\PY{p}{,}\PY{l+m+mi}{1951}\PY{p}{,}\PY{l+m+mi}{1952}\PY{p}{,}\PY{l+m+mi}{1953}\PY{p}{,}\PY{l+m+mi}{1954}\PY{p}{,}\PY{l+m+mi}{1955}\PY{p}{,}\PY{l+m+mi}{1956}\PY{p}{,}\PY{l+m+mi}{1957}\PY{p}{,}\PY{l+m+mi}{1958}\PY{p}{,}\PY{l+m+mi}{1959}\PY{p}{]}\PY{p}{)}\PY{p}{,}\PYZbs{}
+                         \PY{n}{title}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Genre Across the Decade}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{20}\PY{p}{,}\PY{l+m+mi}{20}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}26}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x109858940>
+\end{Verbatim}
+            
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_28_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
