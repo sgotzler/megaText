@@ -62,7 +62,7 @@ Note that the program description field contains the richest amount of textual i
 
 This dataset is provided for the purposes of further exploration, education, experimentation regarding the largely lost world of early television programming.
 
-If you have identified errors in the dataset, or have additional information to add, we welcome your feedback! Please contact us at mailto:kn4@andrew.cmu.edu
+If you have identified errors in the dataset, or have additional information to add, we welcome your feedback! Please contact us at [kn4@andrew.cmu.edu](mailto:kn4@andrew.cmu.edu)
 
 Thanks!
 
@@ -70,7 +70,7 @@ Thanks!
 
 Please note that we will not accept pull requests for the data in this repository.
 
-If you have corrections, please email them to us at mailto:kn4@andrew.cmu.edu and we will forward them to the appropriate department for correction and inclusion in a future release.
+If you have corrections, please email them to us at [kn4@andrew.cmu.edu](mailto:kn4@andrew.cmu.edu) and we will forward them to the appropriate department for correction and inclusion in a future release.
 
 ## Attribution
 
@@ -78,7 +78,7 @@ Our dataset is being offered under the CC-BY 4.0 Creative Commons License: [![Li
 
 We respectfully ask that you acknowledge "Mapping the Television Mega-Text" and dSHARP at CMU as a source wherever possible, in order to preserve a link to the dataset.
 
-If this data is to be cited in a publication, please cite it using this **DOI: ADD DOI from KiltHub**.
+If this data is to be cited in a publication, please cite it using this **DOI** #*ADD DOI from KiltHub*
 
 Use of this dataset does not grant or imply the approval, commission, or support of your work by the researchers, Carnegie Mellon University, or dSHARP at CMU. If you transform or modify to the dataset, you must clearly distinguish the resulting work as having been modified from the dSHARP hosted dataset.
 
