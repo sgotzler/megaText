@@ -1,6 +1,6 @@
 # Mapping the Television Mega-Text
 
-DOI #**add DOI when KiltHub is deposit is live**
+**DOI** #*add DOI when KiltHub is deposit is live*
 
 Welcome to the Git Hub repository for the "Mapping the Television Mega-Text" project. This repository contains a release of our dataset of programming information about 1950's television. This dataset was created by merging together metadata gathered from IMDB.com and elsewhere in an effort to collect, collate, and publish a compendium of metadata about television in the fifties, much of which does not survive in any watchable form today.
 
@@ -74,7 +74,7 @@ If you have corrections, please email them to us at mailto:kn4@andrew.cmu.edu an
 
 ## Attribution
 
-Our dataset is being offered under the CC-BY 4.0 Creative Commons License. [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/
+Our dataset is being offered under the CC-BY 4.0 Creative Commons License. [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 We respectfully ask that you acknowledge "Mapping the Television Mega-Text" and dSHARP at CMU as a source wherever possible, in order to preserve a link to the dataset.
 
