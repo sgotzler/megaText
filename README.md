@@ -26,7 +26,7 @@ In the dataset, these series are displayed as the following columns:
 
 | **Series** | **Description** |
 -------------|-------------|
-| realtitle   | assigned by us; defaults to Encyclopedia's title when matched otherwise displays imdb title. |
+| realtitle   | assigned by us (defaults to Encyclopedia's title when matched otherwise displays imdb title) |
 | program_type | from Encyclopedia |
 | program_genre | from Encyclopedia |
 | network | from Encyclopedia |
@@ -38,7 +38,7 @@ In the dataset, these series are displayed as the following columns:
 | trivia | from IMDB |
 | program_title | from Encyclopedia |
 | movie_id | from IMDB |
-| kind_id | from IMDB; denotes the type of programming content, i.e. series, episode or tv movie. |
+| kind_id | from IMDB (denotes the type of programming content, i.e. series, episode or tv movie) |
 | title | from IMDB |
 
 #### Note: Program Genre
@@ -74,7 +74,7 @@ If you have corrections, please email them to us at mailto:kn4@andrew.cmu.edu an
 
 ## Attribution
 
-Our dataset is being offered under the CC-BY 4.0 Creative Commons License. [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+Our dataset is being offered under the CC-BY 4.0 Creative Commons License: [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 We respectfully ask that you acknowledge "Mapping the Television Mega-Text" and dSHARP at CMU as a source wherever possible, in order to preserve a link to the dataset.
 
