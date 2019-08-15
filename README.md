@@ -8,7 +8,7 @@ In this repository, you will find files containing all of the records from our d
 
 Additionally, the repository also contains the Jupyter Notebooks that we wrote in Python3 in order to merge the different sources of television metadata into a single dataset, and that we also used to run a preliminary round of textual analysis working-class content in the Action & Adventure genres.
 
-The notebooks for these python scripts and their accompanying documentation are located in the "merge" and "analysis" folders respectively. The notebook merge.ipynb pulss from a local sqlite database of imdb metadata downloaded on 09/2017.
+The notebooks for these python scripts and their accompanying documentation are located in the "merge" and "analysis" folders respectively. The notebook merge.ipynb pulls from a local sqlite database of imdb metadata downloaded on 09/2017.
 
 ## Data Structure
 
@@ -70,7 +70,7 @@ Thanks!
 
 Please note that we will not accept pull requests for the data in this repository.
 
-If you have corrections, please email them to us at [kn4@andrew.cmu.edu](mailto:kn4@andrew.cmu.edu) and we will forward them to the appropriate department for correction and inclusion in a future release.
+If you have corrections, please email them to us at [kn4@andrew.cmu.edu](mailto:kn4@andrew.cmu.edu) and we will consider suggested corrections for inclusion in a future release.
 
 ## Attribution
 
@@ -80,7 +80,7 @@ We respectfully ask that you acknowledge "Mapping the Television Mega-Text" and 
 
 If this data is to be cited in a publication, please cite it using this **DOI** #*ADD DOI from KiltHub*
 
-Use of this dataset does not grant or imply the approval, commission, or support of your work by the researchers, Carnegie Mellon University, or dSHARP at CMU. If you transform or modify to the dataset, you must clearly distinguish the resulting work as having been modified from the dSHARP hosted dataset.
+Use of this dataset does not grant or imply the approval, commission, or support of your work by the researchers, Carnegie Mellon University, or dSHARP at CMU. If you transform or modify to the dataset, you must clearly distinguish the resulting work as having been modified from this dataset.
 
 ## Acknowledgement
 
