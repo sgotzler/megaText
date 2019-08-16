@@ -4,15 +4,15 @@
 
 Welcome to the Git Hub repository for the "Mapping the Television Mega-Text" project. This repository contains a release of our dataset of programming information about 1950's television. This dataset was created by merging together metadata gathered from IMDB.com and elsewhere in an effort to collect, collate, and publish a compendium of metadata about television in the fifties, much of which does not survive in any watchable form today.
 
-In this repository, you will find files containing all of the records from our dataset as CSVs, as well as a description of the data, the data structure, and some guidelines on using the data. Please take a minute to briefly read over the sections below carefully.
+In this repository, you will find files containing all of the records from our dataset as CSVs, as well as the Jupyter Notebooks that we wrote in Python3 in order to merge the different sources of television metadata into a single dataset, and that we also used to run a preliminary round of textual analysis working-class content in the Action & Adventure genres. 
 
-Additionally, the repository also contains the Jupyter Notebooks that we wrote in Python3 in order to merge the different sources of television metadata into a single dataset, and that we also used to run a preliminary round of textual analysis working-class content in the Action & Adventure genres.
+The notebooks for these python scripts and their accompanying CSVs and image outputs are located in the "merge" and "analysis" folders respectively. The notebook merge.ipynb pulls from a local sqlite database of imdb metadata downloaded on 09/2017. The "merge" folder also contains the jupyter notebook "wiki.ipynb" and the sub-folder ".ipynb_checkpoints" which contain exploratory work undertaken towards incorporating scheduling information gathered from wikipedia into the dataset. This scheduling information is NOT incorporated into the dataset as it currently is constituted. 
 
-The notebooks for these python scripts and their accompanying documentation are located in the "merge" and "analysis" folders respectively. The notebook merge.ipynb pulls from a local sqlite database of imdb metadata downloaded on 09/2017.
+Additionally, this README file contains a description of the data, the data structure, and some guidelines on using the data. Please take a minute to briefly read over the sections below carefully.
 
 ## Data Structure
 
-The data is released as a CSV dump, "title5.csv" contains the merged dataset of 1950's programming, and can be found in the merge folder.
+The compiled data is released as a CSV dump. The file "title5.csv" contains the merged dataset of 1950's programming, and can be found in the merge folder.
 
 Programming information was gathered from 2 sources:
 - (1) a bulk download of publicly available data from IMDB
