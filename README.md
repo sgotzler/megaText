@@ -1,7 +1,5 @@
 # Mapping the Television Mega-Text
 
-**DOI** #*add DOI when KiltHub is deposit is live*
-
 Welcome to the Git Hub repository for the "Mapping the Television Mega-Text" project. This repository contains a release of our dataset of programming information about 1950's television. This dataset was created by merging together metadata gathered from IMDB.com and elsewhere in an effort to collect, collate, and publish a compendium of metadata about television in the fifties, much of which does not survive in any watchable form today.
 
 In this repository, you will find files containing all of the records from our dataset as CSVs, as well as the Jupyter Notebooks that we wrote in Python3 in order to merge the different sources of television metadata into a single dataset, and that we also used to run a preliminary round of textual analysis working-class content in the Action & Adventure genres. 
